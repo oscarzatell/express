@@ -14,20 +14,20 @@ const express = require("express");
 const app = express();
 
 //creando ruta about con un h1 dentro
-app.get("/about", (req, res) => {
-  res.send("<h1>about me</h1>");
-});
-
-app.get("/contact", (req, res) => {
-  res.send("Formulario de contacto");
-});
-
-app.get("/test", (req, res) => {
-  res.send("<h1>test</h1>");
-});
-
 app.get("/", (req, res) => {
-  res.send("Hello world");
+  res.send("Peticion GET recibida");
+});
+
+app.post("/post", (req, res) => {
+  res.send("Peticion POST recibida");
+});
+
+app.put("/put", (req, res) => {
+  res.send("Peticion de Actualizacion recibida");
+});
+
+app.delete("/delete", (req, res) => {
+  res.send("<h1>Peticion de Borrado recibida</h1>");
 });
 
 app.listen(5000, () => {
