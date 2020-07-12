@@ -13,6 +13,11 @@ server.listen(3000, () => {
 const express = require("express");
 const app = express();
 
+//creando ruta about
+app.get("/about", (req, res) => {
+  res.send("<h1>about me</h1>");
+});
+
 app.get("/", (req, res) => {
   res.send("Hello world");
 });
