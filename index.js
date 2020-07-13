@@ -13,12 +13,18 @@ server.listen(3000, () => {
 const express = require("express");
 const app = express();
 
+app.use(express.json());
+
 //creando ruta about con un h1 dentro
-app.get("/", (req, res) => {
-  res.send("Peticion GET recibida");
+app.get("/user", (req, res) => {
+  res.json({
+    username: "Cameron",
+    lastname: "Howe",
+  });
 });
 
-app.post("/post", (req, res) => {
+app.post("/user", (req, res) => {
+  console.log(req.body);
   res.send("Peticion POST recibida");
 });
 
