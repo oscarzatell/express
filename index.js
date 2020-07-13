@@ -15,6 +15,11 @@ const app = express();
 
 app.use(express.json());
 
+app.all("/user", (req, res, next) => {
+  console.log("por aqui pasó");
+  next();
+});
+
 //creando ruta about con un h1 dentro
 app.get("/user/", (req, res) => {
   res.json({
