@@ -13,13 +13,23 @@ server.listen(3000, () => {
 const express = require("express");
 const app = express();
 
-app.use(express.json());
+//Middleware
+function logger(req, res, next) {
+  console.log(
+    `Ruta recibida: ${req.protocol}://${req.get("host")}${req.originalUrl}`
+  );
+  next();
+}
 
+app.use(express.json());
+app.use(logger);
+
+/*
 app.all("/user", (req, res, next) => {
   console.log("por aqui pasó");
   next();
 });
-
+*/
 //creando ruta about con un h1 dentro
 app.get("/user/", (req, res) => {
   res.json({
